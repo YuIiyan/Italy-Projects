@@ -1,4 +1,3 @@
-```markdown
 # 🧠 Git Command Basics
 
 ## 📦 Setup
