@@ -1,6 +1,30 @@
 
 const hero = document.querySelector(".hero");
 const dots = document.querySelectorAll(".dot");
+const navLinks = document.querySelectorAll(".nav-links a");
+const inPageLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
+
+for (const link of inPageLinks) {
+	link.addEventListener("click", (event) => {
+		const targetId = link.getAttribute("href");
+		const target = document.querySelector(targetId);
+
+		if (!target) {
+			return;
+		}
+
+		event.preventDefault();
+		target.scrollIntoView({ behavior: "smooth", block: "start" });
+		history.replaceState(null, "", targetId);
+	});
+}
+
+for (const link of navLinks) {
+	link.addEventListener("mouseover", () => {
+		navLinks.forEach((l) => l.classList.remove("active"));
+		link.classList.add("active");
+	});
+}
 
 const heroImages = [
 	'url("Images/Background.png")',
