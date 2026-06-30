@@ -166,6 +166,15 @@ h1 {
     filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
 }
 
+#dino.crouching {
+    height: clamp(48px, 8vw, 64px);
+    width: clamp(78px, 12vw, 100px);
+    top: calc(100% - clamp(84px, 12vw, 104px));
+    background-image: url("crouched dino.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 #rock {
     height: clamp(42px, 7vw, 56px);
     width: clamp(42px, 7vw, 56px);
@@ -175,11 +184,28 @@ h1 {
     background-image: url("https://img.itch.zone/aW1hZ2UvMjI4Mjk5Ny8xMzU1MjMxNS5wbmc=/794x1000/5jjSwT.png");
     background-size: cover;
     filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.35));
-    animation: rock 1.3s linear infinite;
+    animation: rock 2.2s linear infinite;
     animation-play-state: paused;
 }
 
 #game.running #rock {
+    animation-play-state: running;
+}
+
+#bird {
+    height: clamp(32px, 5vw, 42px);
+    width: clamp(60px, 9vw, 78px);
+    position: relative;
+    top: calc(100% - clamp(196px, 30vw, 218px));
+    left: calc(100% + 200px);
+    background-image: url("bird.jpeg");
+    background-size: cover;
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    animation: bird 3s linear infinite;
+    animation-play-state: paused;
+}
+
+#game.running #bird {
     animation-play-state: running;
 }
 
@@ -243,6 +269,16 @@ h1 {
 
     100% {
         left: -58px;
+    }
+}
+
+@keyframes bird {
+    0% {
+        left: calc(100% + 180px);
+    }
+
+    100% {
+        left: -120px;
     }
 }
 
